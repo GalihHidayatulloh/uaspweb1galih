@@ -43,17 +43,31 @@
         </nav>
     </header>
 
-    <div class="card">
-        <section class="sofa" id="sofa">
-            <!-- ... your existing product details ... -->
-        </section>
-        <img src="img/sofa.jpeg" alt="Deskripsi Gambar" class="center">
-        <p>Introducing our exquisite sofa, the perfect blend of style and comfort to elevate your living space. This luxurious piece is designed to cater to your relaxation needs while enhancing the aesthetic appeal of your home.</p>
-        <p class="price">price: $599.99</p>
-        <a href="transaksi.html?product=sofa$599.99">
-            <button>Buy Now</button>
-        </a>
-    </div>
+   <!-- In your original HTML file -->
+   <div class="card">
+    <section class="sofa" id="sofa">
+        <!-- ... your existing product details ... -->
+    </section>
+    <img src="img/sofa.jpeg" alt="Deskripsi Gambar" class="center">
+    <p>Introducing our exquisite sofa, the perfect blend of style and comfort to elevate your living space. This luxurious piece is designed to cater to your relaxation needs while enhancing the aesthetic appeal of your home.</p>
+    <p class="product">Product: Modern Sofa</p>
+    <p class="price">Price: $599.99</p>
+    <button id="buyNowBtn">Buy Now</button>
+</div>
+
+<script>
+    document.getElementById('buyNowBtn').addEventListener('click', function () {
+        // Get product and price information
+        var product = document.querySelector('.product').textContent.replace('Product: ', '');
+        var price = document.querySelector('.price').textContent.replace('Price: ', '');
+
+        // Create a URL with query parameters to pass data to transaksi.html
+        var url = 'transaksi.html?product=' + encodeURIComponent(product) + '&price=' + encodeURIComponent(price);
+
+        // Redirect to transaksi.html with the product and price data
+        window.location.href = url;
+    });
+</script>
     
     
     <div class="card">
